@@ -4,6 +4,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Package } from './paquete.entity';
+import { CreatePackageDto } from './package.dto';
 
 @Injectable()
 export class PackageService {
@@ -22,5 +23,10 @@ export class PackageService {
             throw new NotFoundException(`Package with id ${id} not found`);
         }
         return paquete;
+    }
+
+    async createPackage(createPackageDto: CreatePackageDto): Promise<Package> {
+        const newPackage = this.packageRepository.create(createPackageDto);
+        return this.packageRepository.save(newPackage);
     }
 }
