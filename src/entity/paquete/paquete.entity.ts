@@ -5,15 +5,12 @@ import {
     ManyToOne,
     JoinColumn,
 } from 'typeorm';
-import { Level } from './level.entity';
+import { Level } from '../level/level.entity';
 
 @Entity()
 export class Package {
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    boxId: number;
 
     @Column()
     weight: number;

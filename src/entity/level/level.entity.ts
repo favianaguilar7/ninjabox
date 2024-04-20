@@ -6,8 +6,8 @@ import {
     Column,
     JoinColumn,
 } from 'typeorm';
-import { Package } from './paquete.entity';
-import { Stand } from './stand.entity';
+import { Package } from '../paquete/paquete.entity';
+import { Stand } from '../stand/stand.entity';
 
 @Entity()
 export class Level {
